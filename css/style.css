@@ -13802,4 +13802,11 @@ ol.commentlist li::after {
 	.projects-two-info{
 		margin-right: 0px;
 	}
+	.popup-vedio{
+		margin-top: 10px;
+	}
+	.float{
+	    bottom: 60px;
+    	right: 20px;
+	}
   }
