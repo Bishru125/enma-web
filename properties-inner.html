@@ -23,6 +23,16 @@
     <link rel="stylesheet" type="text/css" href="css/flaticon.min.css">
     <link rel="stylesheet" type="text/css" href="plugins/revolution/revolution/css/settings.css">
     <link rel="stylesheet" type="text/css" href="plugins/revolution/revolution/css/navigation.css">
+
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <!-- Fancybox JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    
 </head>
 <body>
 
@@ -350,6 +360,32 @@
                                         </ul>
                                     </div>
 
+                                    <div class="floor-main-container mt-5">
+                                        <h1>Gallery</h1>
+                                        <div class="row g-1">
+                                            <div class="col-lg-6">
+                                                <div class="popup-vedio">
+                                                    <a href="media/video/banner-video2.mp4" data-fancybox="gallery" class="video-play-button">
+                                                        <img src="images/main-slider/slider1/img-2.jpg"/>
+                                                        <span></span>
+                                                      </a>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                    <div class="popup-vedio">
+                                                        <a href="media/video/banner-video.mp4" data-fancybox="gallery" class="video-play-button">
+                                                            <img src="images/main-slider/slider1/img-3.jpg" alt="Thumbnail for popup image"/>
+                                                            <span></span>
+                                                        </a>
+                                                    </div>
+                                            </div>
+                                        </div>
+
+
+                                       
+                                    </div>
+
 
 
                                 </div>
@@ -618,7 +654,7 @@
             <h6>Sea View</h6>
           </div>
             </div>
-            <div class="modal-floor-map">
+            <div class="modal-floor-map container__img-holder">
                 <img src="images/project-inner/blueprint-1.png" alt="">
             </div>
         </div>
@@ -626,6 +662,14 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="img-popup">
+    <img src="" alt="Popup Image">
+    <div class="close-btn">
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
   </div>
   <!-- 2 -->
@@ -653,7 +697,7 @@
                   <h6>Sea View</h6>
                 </div>
             </div>
-            <div class="modal-floor-map">
+            <div class="modal-floor-map container__img-holder">
                 <img src="images/project-inner/blueprint-1.png" alt="">
             </div>
         </div>
@@ -700,6 +744,67 @@
 <script  src="plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
 <script  src="plugins/revolution/revolution/js/extensions/revolution-plugin.js"></script>
 <script  src="js/rev-script-1.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> -->
+
+<script>
+        $(document).ready(function() {
+
+        // required elements
+        var imgPopup = $('.img-popup');
+        var imgCont  = $('.container__img-holder');
+        var popupImage = $('.img-popup img');
+        var closeBtn = $('.close-btn');
+
+        // handle events
+        imgCont.on('click', function() {
+            var img_src = $(this).children('img').attr('src');
+            imgPopup.children('img').attr('src', img_src);
+            imgPopup.addClass('opened');
+        });
+
+        $(imgPopup, closeBtn).on('click', function() {
+            imgPopup.removeClass('opened');
+            imgPopup.children('img').attr('src', '');
+        });
+
+        popupImage.on('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        });
+</script>
+        <script>
+                const video = document.getElementById("video");
+            const circlePlayButton = document.getElementById("circle-play-b");
+
+            function togglePlay() {
+                if (video.paused || video.ended) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+
+            circlePlayButton.addEventListener("click", togglePlay);
+            video.addEventListener("playing", function () {
+                circlePlayButton.style.opacity = 0;
+            });
+            video.addEventListener("pause", function () {
+                circlePlayButton.style.opacity = 1;
+            });
+
+        </script>
+
+<script>
+    $('[data-fancybox="gallery"]').fancybox({
+        buttons: [
+            "close" // Close button
+        ],
+        protect: true
+    });
+</script>
+
+
 </body>
 </html>
 
