@@ -13779,6 +13779,17 @@ ol.commentlist li::after {
   }
 
 
+  .pro-loc-div{
+	display: flex;
+	align-items: center;
+	gap: 5px;
+  }
+
+  .pro-loc-div h5{
+	margin-bottom: 0px;
+	font-size: 15px;
+  }
+
   @media only screen and (max-width:900px) {
 	.read-mode-sm{
 		position: absolute;
